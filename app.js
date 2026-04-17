@@ -86,6 +86,7 @@ function sortearTimes() {
     }
 
     exibirResultado(timeA, timeB);
+    mostrarSliderDestravamento();
 }
 
 function exibirResultado(timeA, timeB) {
@@ -108,6 +109,77 @@ btnAdd.addEventListener('click', addPlayer);
 inputPlayer.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addPlayer();
 });
+
+const slider = document.getElementById('unlockSlider');
+const track = document.querySelector('.unlock-track');
+const unlockContainer = document.getElementById('unlockContainer');
+let isDragging = false;
+let startX, maxDist;
+
+// Ativa o slider quando sortear os times
+// Chame essa função dentro da sua função sortearTimes()
+function mostrarSliderDestravamento() {
+    unlockContainer.classList.remove('hidden');
+    resetSlider();
+}
+
+slider.addEventListener('mousedown', startDrag);
+slider.addEventListener('touchstart', startDrag);
+
+function startDrag(e) {
+    isDragging = true;
+    startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+    maxDist = track.offsetWidth - slider.offsetWidth - 10;
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
+}
+
+function drag(e) {
+    if (!isDragging) return;
+    const x = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+    let moveX = x - startX;
+
+    if (moveX < 0) moveX = 0;
+    if (moveX > maxDist) moveX = maxDist;
+
+    slider.style.left = moveX + 5 + 'px';
+
+    // Se chegou ao final
+    if (moveX >= maxDist) {
+        onUnlocked();
+    }
+}
+
+function stopDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    // Se não chegou ao fim, volta para o início
+    if (parseInt(slider.style.left) < maxDist) {
+        slider.style.transition = "left 0.3s ease";
+        slider.style.left = "5px";
+        setTimeout(() => slider.style.transition = "", 300);
+    }
+}
+
+function onUnlocked() {
+    slider.classList.add('unlocked');
+    document.querySelector('.unlock-text').innerText = "Times Confirmados!";
+    isDragging = false;
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('touchmove', drag);
+    
+    // Aqui você pode adicionar o que acontece após destravar
+    // Ex: liberar botão de compartilhar ou salvar racha
+    alert("Times confirmados com sucesso!");
+}
+
+function resetSlider() {
+    slider.style.left = "5px";
+    slider.classList.remove('unlocked');
+    document.querySelector('.unlock-text').innerText = "Arraste para confirmar times";
+}
 
 // Inicializar a lista ao carregar a página
 renderPlayers();

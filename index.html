@@ -9,9 +9,14 @@
 <body>
 
     <header class="header">
-        <img src="fair-play-logo.png" alt="Fair Play App" class="header-logo">
+        <img src="assets/fair-play-logo1.png" alt="Fair Play App" class="header-logo">
         <div class="header-status">O racha começa aqui</div>
     </header>
+
+<div class="background-players-wrapper">
+    <main class="container">
+        </main>
+</div>
 
     <main class="container">
         <section class="mode-selector">
@@ -53,6 +58,14 @@
                 <div class="team-card">
                     <h3 class="team-b-title">Time B</h3>
                     <ul id="teamBList"></ul>
+                </div>
+            </div>
+            <div id="unlockContainer" class="unlock-container hidden">
+                <div class="unlock-track">
+                    <div id="unlockSlider" class="unlock-slider">
+                        <span class="arrow">→</span>
+                    </div>
+                    <span class="unlock-text">Arraste para confirmar times</span>
                 </div>
             </div>
             <button onclick="window.location.reload()" class="btn-clear">Novo Sorteio</button>

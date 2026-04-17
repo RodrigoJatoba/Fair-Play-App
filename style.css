@@ -20,55 +20,89 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll lateral por causa das imagens */
+    
+    /* 110% faz a imagem ficar um pouco maior que a tela, 
+       permitindo que você a veja 'menor' se ajustar o enquadramento */
+    background-size: 110% auto; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* Fundo com Jogadores: Ajustado para .jpg e posições fixas */
+    background-image: 
+        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.png'), 
+        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.png');
+    background-position: left center, left center, right center, right center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover, 55vh, cover, 65vh; /* vh mantém o tamanho proporcional à altura da tela */
+}
+
+/* Esconde jogadores em telas menores para focar no conteúdo */
+@media (max-width: 1024px) {
+    body { background-image: none; }
 }
 
 .header {
-    width: 100%;
-    padding: 2rem;
+    width: 100%; 
+    padding: 4rem 1rem; /* Aumentei um pouco o padding para dar "ar" à logo */
     text-align: center;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     align-items: center;
-
-    /* Define a imagem de fundo */
-    /* Se a imagem estiver na mesma pasta que o CSS, use apenas 'fundo1.jpg' */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fundo1.jpg'); 
+    justify-content: center;
+    position: relative; 
+    border-bottom: 4px solid var(--mustard-yellow);
+    margin-bottom: 2.5rem;
     
-    /* Ajustes para o fundo preencher todo o espaço corretamente */
-    background-size: cover;
-    background-position: center;
+    /* Melhoria no gradiente: escurecemos as bordas para focar no centro (radial) */
+    background-image: 
+        radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%), 
+        url('assets/imagem-campo.png'); 
+    
+    background-size: cover; 
+    /* 'center' alinha o círculo central do campo com a sua logo */
+    background-position: center; 
     background-repeat: no-repeat;
-    border-bottom: 3px solid var(--mustard-yellow);
-    margin-bottom: 2rem;
+    
 }
 
 .header-logo {
-    max-width: 300px;
-    width: 100%;
+    max-width: 280px; 
+    width: 80%;  
     height: auto;
-    position: relative; /* Garante que ela respeite a ordem de empilhamento */
-    z-index: 1;         /* Coloca a logo explicitamente numa camada acima do fundo */
-    linear-gradient (rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fundo1.jpg');
+    /* Drop-shadow mais suave e espalhado simula iluminação vinda de cima */
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.6));
+    /* Leve transição para interações */
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    /* Efeito sutil de flutuação */
+    transform: translateY(-5px) scale(1.02);
 }
 
 .header-status {
-    color: var(--text-muted);
-    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-top: 15px;
+    color: var(--text-white);
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 600;
-    margin-top: 10px;
-    padding-left: 10px;
-    display: inline-block;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .container {
-    width: 100%; /* Ocupa tudo em telas pequenas */
-    padding: 0 20px; /* Margem de segurança nas laterais */
-    max-width: 600px; /* Não deixa ficar largo demais em tablets/monitores */
-    margin: 0 auto;
+    width: 100%;
+    max-width: 500px; /* Reduzi um pouco para ficar mais elegante no desktop */
+    padding: 0 20px 40px;
     display: flex;
     flex-direction: column;
+    z-index: 2;
 }
 
 /* Imagens e inputs responsivos */
@@ -202,20 +236,25 @@ input:focus {
     cursor: pointer;
 }
 
+/* Botão de Sortear em destaque */
 .btn-sortear {
     width: 100%;
-    background-color: var(--primary-green);
-    color: var(--graphite-dark);
-    font-size: 1.2rem;
-    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary-green), #048d3d);
+    color: white;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    padding: 18px;
+    border-radius: 12px;
     border: none;
-    padding: 15px;
-    border-radius: 8px;
     cursor: pointer;
-    margin-top: 2rem;
-    box-shadow: 0 4px 15px rgba(19, 179, 86, 0.3);
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 20px rgba(5, 173, 75, 0.2);
+    transition: all 0.3s;
 }
 
+.btn-sortear:active {
+    transform: scale(0.98);
+}
 .btn-sortear:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
@@ -261,16 +300,21 @@ input:focus {
     margin-top: 1rem;
 }
 
+/* Melhoria nos Cards de Jogador */
 .player-item {
     background-color: var(--graphite-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    border-left: 4px solid var(--primary-green);
-    animation: fadeIn 0.3s ease;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-green);
+    transition: transform 0.2s;
+}
+
+.player-item:hover {
+    transform: scale(1.02);
 }
 
 .btn-remove {
@@ -300,4 +344,53 @@ select {
     color: var(--mustard-yellow);
     font-size: 0.9rem;
     margin-left: 10px;
+}
+.unlock-container {
+    width: 100%;
+    margin-top: 20px;
+    user-select: none;
+}
+
+.unlock-track {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: var(--graphite-light);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.unlock-slider {
+    position: absolute;
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(5, 173, 75, 0.4);
+    transition: background-color 0.3s;
+}
+
+.unlock-slider:active { cursor: grabbing; }
+
+.unlock-text {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estado de Destravado */
+.unlocked {
+    background-color: var(--mustard-yellow) !important;
 }
