@@ -27,8 +27,8 @@ body {
     overflow-x: hidden; 
     
     background-image: 
-        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.png'), 
-        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.png');
+        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.PNG'), 
+        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.PNG');
     background-position: left center, left center, right center, right center;
     background-repeat: no-repeat; 
     background-attachment: fixed; 
@@ -60,7 +60,7 @@ body {
     border-bottom: 4px solid var(--mustard-yellow);
     background-image: 
         radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%), 
-        url('assets/imagem-campo.png');
+        url('assets/imagem-campo.PNG');
     background-size: cover;
     background-position: center;
 }
@@ -228,7 +228,7 @@ img, input, button {
     border-radius: 50%;
     
     /* Adicionando a imagem da bola */
-    background-image: url('assets/icone-bola.png'); 
+    background-image: url('assets/icone-bola.PNG'); 
     background-size: 100%; 
     background-position: center;
     background-repeat: no-repeat;
