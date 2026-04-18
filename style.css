@@ -27,8 +27,8 @@ body {
     overflow-x: hidden; 
     
     background-image: 
-        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.png'), 
-        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.png');
+        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador1.png'), 
+        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador2.png');
     background-position: left center, left center, right center, right center;
     background-repeat: no-repeat; 
     background-attachment: fixed; 
@@ -228,7 +228,7 @@ img, input, button {
     border-radius: 50%;
     
     /* Adicionando a imagem da bola */
-    background-image: url('assets/icone-bola.png'); 
+    background-image: url('assets/icone-bola1.png'); 
     background-size: 100%; 
     background-position: center;
     background-repeat: no-repeat;
