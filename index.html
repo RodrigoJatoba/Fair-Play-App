@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Play App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <img src="assets/fair-play-logo.png" alt="Fair Play App" class="header-logo">
+        <div class="header-status">O racha começa aqui</div>
+    </header>
+
+    <main class="container">
+        <section class="mode-selector">
+            <label class="switch-container">
+                <input type="checkbox" id="modeToggle">
+                <span class="slider"></span>
+            </label>
+            <span id="modeLabel">Modo: Aleatório</span>
+        </section>
+
+        <section class="add-player">
+            <input type="text" id="playerName" placeholder="Nome do craque...">
+        
+            <select id="playerLevel" class="hidden" aria-label="Nível do jogador">
+                <option value="1">⭐ (Iniciante)</option>
+                <option value="2">⭐⭐ (Médio)</option>
+                <option value="3" selected>⭐⭐⭐ (Bom)</option>
+                <option value="4">⭐⭐⭐⭐ (Craque)</option>
+                <option value="5">⭐⭐⭐⭐⭐ (Apelação)</option>
+            </select>
+        
+            <button id="btnAdd" class="btn-primary" onclick="addPlayer()">Adicionar</button>
+        </section>
+
+        <section class="player-list-container">
+            <h2>Jogadores Escalados</h2>
+            <ul id="playerList" class="player-list"></ul>
+        </section>
+
+        <button class="btn-sortear">Sortear Times</button>
+
+        <section id="resultSection" class="result-container hidden">
+            <h2>Times Sorteados</h2>
+            <div class="teams-grid">
+                <div class="team-card">
+                    <h3 class="team-a-title">Time A</h3>
+                    <ul id="teamAList"></ul>
+                </div>
+                <div class="team-card">
+                    <h3 class="team-b-title">Time B</h3>
+                    <ul id="teamBList"></ul>
+                </div>
+            </div>
+
+            <div id="unlockContainer" class="mode-selector confirm-wrapper hidden" style="margin-top: 20px;">
+                <label class="switch-container">
+                    <input type="checkbox" id="confirmToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="confirmLabel">Confirmar Escalação</span>
+            </div>
+
+            <button id="btnClear" class="btn-clear">Limpar Sorteio</button>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
