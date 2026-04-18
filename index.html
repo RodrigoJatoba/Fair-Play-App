@@ -13,11 +13,6 @@
         <div class="header-status">O racha começa aqui</div>
     </header>
 
-<div class="background-players-wrapper">
-    <main class="container">
-        </main>
-</div>
-
     <main class="container">
         <section class="mode-selector">
             <label class="switch-container">
@@ -38,7 +33,7 @@
                 <option value="5">⭐⭐⭐⭐⭐ (Apelação)</option>
             </select>
         
-            <button id="btnAdd" class="btn-primary">Adicionar</button>
+            <button id="btnAdd" class="btn-primary" onclick="addPlayer()">Adicionar</button>
         </section>
 
         <section class="player-list-container">
@@ -60,19 +55,19 @@
                     <ul id="teamBList"></ul>
                 </div>
             </div>
-            <div id="unlockContainer" class="unlock-container hidden">
-                <div class="unlock-track">
-                    <div id="unlockSlider" class="unlock-slider">
-                        <span class="arrow">→</span>
-                    </div>
-                    <span class="unlock-text">Arraste para confirmar times</span>
-                </div>
+
+            <div id="unlockContainer" class="mode-selector confirm-wrapper hidden" style="margin-top: 20px;">
+                <label class="switch-container">
+                    <input type="checkbox" id="confirmToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="confirmLabel">Confirmar Escalação</span>
             </div>
-            <button onclick="window.location.reload()" class="btn-clear">Novo Sorteio</button>
+
+            <button id="btnClear" class="btn-clear">Limpar Sorteio</button>
         </section>
     </main>
 
-<script src="app.js"></script>
-
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* Paleta de Cores */
 :root {
     --primary-green: #05ad4b;
     --mustard-yellow: #E1AD01;
@@ -7,6 +8,7 @@
     --text-muted: #A0A0A0;
 }
 
+/* Reset básico e configuração global */
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +16,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Estilo do Body com background e responsividade */
 body {
     background-color: var(--graphite-dark);
     color: var(--text-white);
@@ -21,16 +24,8 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita scroll lateral por causa das imagens */
+    overflow-x: hidden; 
     
-    /* 110% faz a imagem ficar um pouco maior que a tela, 
-       permitindo que você a veja 'menor' se ajustar o enquadramento */
-    background-size: 110% auto; 
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    /* Fundo com Jogadores: Ajustado para .jpg e posições fixas */
     background-image: 
         linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.png'), 
         linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.png');
@@ -45,87 +40,96 @@ body {
     body { background-image: none; }
 }
 
+/* Em tablets e celulares, removemos os jogadores para dar mais foco ao conteúdo e melhorar a legibilidade */
+@media (max-width: 1100px) {
+    body { background-image: none; } /* Remove jogadores para dar foco ao conteúdo em tablets/celulares */
+}
+
+/* Estilo do Header com background e responsividade */
 .header {
-    width: 100%; 
-    padding: 4rem 1rem; /* Aumentei um pouco o padding para dar "ar" à logo */
-    text-align: center;
-    display: flex; 
+    width: 100%;
+    max-width: 100%; /* Ocupa a tela toda lateralmente */
+    min-height: 160px; /* Altura flexível */
+    height: auto;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative; 
     border-bottom: 4px solid var(--mustard-yellow);
-    margin-bottom: 2.5rem;
-    
-    /* Melhoria no gradiente: escurecemos as bordas para focar no centro (radial) */
     background-image: 
         radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%), 
-        url('assets/imagem-campo.png'); 
-    
-    background-size: cover; 
-    /* 'center' alinha o círculo central do campo com a sua logo */
-    background-position: center; 
-    background-repeat: no-repeat;
-    
+        url('assets/imagem-campo.png');
+    background-size: cover;
+    background-position: center;
 }
 
+/* Logo com sombra e efeito de hover */
 .header-logo {
-    max-width: 280px; 
-    width: 80%;  
+    max-width: 220px; /* Reduzido levemente para telas menores */
+    width: 100%;
     height: auto;
-    /* Drop-shadow mais suave e espalhado simula iluminação vinda de cima */
-    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.6));
-    /* Leve transição para interações */
+    filter: drop-shadow(0px 6px 12px rgba(0, 0, 0, 0.6));
     transition: transform 0.3s ease;
 }
 
+/* Efeito de hover para a logo: aumenta um pouco e adiciona uma sombra mais forte */
 .header-logo:hover {
-    /* Efeito sutil de flutuação */
-    transform: translateY(-5px) scale(1.02);
+    transform: scale(1.1); 
+    filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.8)); 
 }
 
+/* Status de confirmação com estilo moderno */
 .header-status {
     background: rgba(0, 0, 0, 0.3);
+    margin-top: 10px; /* Corrigido de -15px para evitar sobreposição feia */
     padding: 5px 15px;
-    border-radius: 20px;
-    margin-top: 15px;
+    border-radius: 20px; 
     color: var(--text-white);
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2px; 
     border: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Container principal com largura máxima para melhor leitura e responsividade */
 .container {
     width: 100%;
-    max-width: 500px; /* Reduzi um pouco para ficar mais elegante no desktop */
-    padding: 0 20px 40px;
-    display: flex;
-    flex-direction: column;
+    max-width: 450px; /* Tamanho ideal para leitura */
+    padding: 0 15px 40px;
     z-index: 2;
 }
 
+/* Em telas maiores, aumentamos um pouco a largura para melhor aproveitamento do espaço */
+@media (min-width: 768px) {
+    .container { max-width: 700px; }
+}
+
+/* Títulos e textos com espaçamento e estilo */
 /* Imagens e inputs responsivos */
 img, input, button {
     max-width: 100%;
 }
 
-.mode-selector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    background: var(--graphite-light);
-    padding: 10px;
-    border-radius: 50px;
-}
-
-/* Esconde o select de nível se o modo for aleatório */
+/* Esconde elementos com a classe .hidden */
 .hidden {
     display: none !important;
 }
 
+/* Estilo do seletor de modo (Switch) e container de resultados */
+.mode-selector {
+    display: flex; /* Mantém os itens em linha por padrão */
+    align-items: center; /* Alinha verticalmente */
+    gap: 15px; /* Espaçamento entre o switch e o texto */
+    margin-bottom: 25px; /* Espaçamento abaixo do seletor */
+    background: var(--graphite-light); /* Fundo para destacar o seletor */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 30px; /* Deixa o fundo arredondado */
+    border: 1px solid #333; /* Borda para destacar o seletor */
+}
+
+/* Container de resultados com estilo moderno */
 .result-container {
     margin-top: 2rem;
     padding: 20px;
@@ -134,11 +138,16 @@ img, input, button {
     border-top: 4px solid var(--primary-green);
 }
 
+/* Grid para os times com gap e responsividade */
 .teams-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 12px;
+}
+
+/* Em telas menores, empilhamos os times para melhor leitura */
+@media (max-width: 550px) {
+    .teams-grid { grid-template-columns: 1fr; } /* Um time abaixo do outro no celular */
 }
 
 .team-card {
@@ -157,6 +166,7 @@ img, input, button {
     border-bottom: 1px solid #333;
 }
 
+/* Botão de Limpar para resetar a escalação */
 .btn-clear {
     width: 100%;
     background: transparent;
@@ -168,97 +178,161 @@ img, input, button {
     cursor: pointer;
 }
 
-/* Responsividade para o resultado */
+/* Responsividade para telas muito pequenas */
 @media (max-width: 480px) {
     .teams-grid { grid-template-columns: 1fr; }
 } 
 
-/* Design do Switch (Botão Deslizante) */
+/* --- ESTILIZAÇÃO DOS SWITCHES --- */
+
+/* 1. O Container em volta do switch */
 .switch-container {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 24px;
+    width:58px; /* Largura total do switch */ 
+    height: 28px; /* Altura total do switch */
+    vertical-align: middle; 
 }
 
-.switch-container input { display: none; }
+/* 2. Esconde o checkbox padrão do navegador */
+.switch-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
+/* 3. A "Pista" do switch (o fundo cinza) */
 .slider {
-    position: absolute;
+    position: absolute; 
     cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #555;
-    transition: .4s;
-    border-radius: 34px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444; /* Cor desativado */
+    transition: .3s; 
+    border-radius: 34px; 
+    border: 1px solid #555;
 }
 
+/* 4. O "Pino" (A Bolinha) */
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 18px; width: 18px;
-    left: 4px; bottom: 3px;
+    position: absolute; 
+    content: ""; 
+    height: 24px; /* Diâmetro da bolinha */ 
+    width: 24px; /* Diâmetro da bolinha */
+    left: 1px;  /* Espaçamento da bolinha do lado esquerdo */
+    bottom: 1px;   
     background-color: white;
     transition: .4s;
     border-radius: 50%;
+    
+    /* Adicionando a imagem da bola */
+    background-image: url('assets/icone-bola.png'); 
+    background-size: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-input:checked + .slider { background-color: var(--primary-green); }
-input:checked + .slider:before { transform: translateX(26px); }
+/* 5. Quando o switch está ATIVADO (Checked) */
+input:checked + .slider {
+    background-color: var(--primary-green);
+    border-color: #048a3c;
+}
+
+/* Move a bolinha para a direita ao ativar */
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* 6. Ajuste no label do Modo para alinhar com o switch */
+#modeLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo específico para quando a confirmação estiver ativa */
+#confirmToggle:checked + .slider {
+    background-color: var(--mustard-yellow);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Ajuste no container de confirmação para alinhar com o design */
+.confirm-wrapper {
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px dashed var(--mustard-yellow); /* Destaque para a área de trava */
+}
+
+/* Quando confirmado, mudamos a cor do texto para amarelo */
+.confirmed-text {
+    color: var(--mustard-yellow);
+    font-weight: bold;
+}
 
 .add-player {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row; /* Mantém linha por padrão */
     gap: 10px;
     margin-bottom: 2rem;
 }
 
-input {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
+@media (max-width: 480px) {
+    .add-player { flex-direction: column; }
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
     border: 1px solid var(--graphite-light);
     background-color: var(--graphite-light);
     color: white;
-    outline: none;
+    font-size: 1rem;
 }
 
-input:focus {
+input:focus { 
     border-color: var(--primary-green);
 }
 
 .btn-primary {
     background-color: var(--mustard-yellow);
-    color: var(--graphite-dark);
-    border: none;
-    padding: 0 20px;
-    border-radius: 8px;
+    padding: 0 25px;
+    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+    border: none;
+    min-height: 48px;
 }
 
-/* Botão de Sortear em destaque */
 .btn-sortear {
     width: 100%;
     background: linear-gradient(135deg, var(--primary-green), #048d3d);
     color: white;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    padding: 18px;
-    border-radius: 12px;
+    font-size: 1.2rem;
+    padding: 20px;
+    border-radius: 14px;
     border: none;
-    cursor: pointer;
     margin-top: 1.5rem;
-    box-shadow: 0 10px 20px rgba(5, 173, 75, 0.2);
-    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(5, 173, 75, 0.3);
+    transition: 0.2s;
 }
 
-.btn-sortear:active {
-    transform: scale(0.98);
+.btn-sortear:active { 
+    transform: scale(0.98); 
 }
-.btn-sortear:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-    transition: 0.2s;
+.btn-sortear:hover { 
+    filter: brightness(1.1); 
+    transform: translateY(-2px); 
 }
 
 .btn-primary, .btn-remove, .btn-sortear {
@@ -300,17 +374,14 @@ input:focus {
     margin-top: 1rem;
 }
 
-/* Melhoria nos Cards de Jogador */
 .player-item {
     background-color: var(--graphite-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 18px;
-    margin-bottom: 10px;
+    padding: 14px;
+    margin-bottom: 8px;
     border-radius: 10px;
     border-left: 5px solid var(--primary-green);
-    transition: transform 0.2s;
+    display: flex;
+    justify-content: space-between;
 }
 
 .player-item:hover {
@@ -378,6 +449,10 @@ select {
     z-index: 2;
     box-shadow: 0 0 10px rgba(5, 173, 75, 0.4);
     transition: background-color 0.3s;
+    background-image: url('assets/icone-bola.png'); /* Verifique se o caminho 'assets/' está correto */
+    background-size: 100%;       /* O tamanho da bola dentro do círculo. Ajuste este valor (ex: 60%, 80%) para o tamanho que preferir. */
+    background-position: center; /* Centraliza a bola */
+    background-repeat: no-repeat;
 }
 
 .unlock-slider:active { cursor: grabbing; }
@@ -393,4 +468,12 @@ select {
 /* Estado de Destravado */
 .unlocked {
     background-color: var(--mustard-yellow) !important;
+}
+
+/* Estilo visual de bloqueio quando a confirmação estiver ativa */
+#confirmToggle:checked ~ .btn-clear, 
+#confirmToggle:checked ~ .btn-sortear {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1); /* Opcional: deixa os botões cinzas para reforçar o bloqueio */
 }
