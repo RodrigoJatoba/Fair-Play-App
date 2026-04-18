@@ -27,8 +27,8 @@ body {
     overflow-x: hidden; 
     
     background-image: 
-        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.PNG'), 
-        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.PNG');
+        linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('assets/jogador4.png'), 
+        linear-gradient(rgba(26, 26, 26, 0.3), rgba(26, 26, 26, 0.3)), url('assets/jogador7.png');
     background-position: left center, left center, right center, right center;
     background-repeat: no-repeat; 
     background-attachment: fixed; 
@@ -60,7 +60,7 @@ body {
     border-bottom: 4px solid var(--mustard-yellow);
     background-image: 
         radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%), 
-        url('assets/imagem-campo.PNG');
+        url('assets/imagem-campo.png');
     background-size: cover;
     background-position: center;
 }
@@ -228,7 +228,7 @@ img, input, button {
     border-radius: 50%;
     
     /* Adicionando a imagem da bola */
-    background-image: url('assets/icone-bola.PNG'); 
+    background-image: url('assets/icone-bola.png'); 
     background-size: 100%; 
     background-position: center;
     background-repeat: no-repeat;
@@ -449,7 +449,7 @@ select {
     z-index: 2;
     box-shadow: 0 0 10px rgba(5, 173, 75, 0.4);
     transition: background-color 0.3s;
-    background-image: url('assets/icone-bola.PNG'); /* Verifique se o caminho 'assets/' está correto */
+    background-image: url('assets/icone-bola.png'); /* Verifique se o caminho 'assets/' está correto */
     background-size: 100%;       /* O tamanho da bola dentro do círculo. Ajuste este valor (ex: 60%, 80%) para o tamanho que preferir. */
     background-position: center; /* Centraliza a bola */
     background-repeat: no-repeat;
