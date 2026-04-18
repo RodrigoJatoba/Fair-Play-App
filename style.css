@@ -449,7 +449,7 @@ select {
     z-index: 2;
     box-shadow: 0 0 10px rgba(5, 173, 75, 0.4);
     transition: background-color 0.3s;
-    background-image: url('assets/icone-bola.png'); /* Verifique se o caminho 'assets/' está correto */
+    background-image: url('assets/icone-bola.PNG'); /* Verifique se o caminho 'assets/' está correto */
     background-size: 100%;       /* O tamanho da bola dentro do círculo. Ajuste este valor (ex: 60%, 80%) para o tamanho que preferir. */
     background-position: center; /* Centraliza a bola */
     background-repeat: no-repeat;
