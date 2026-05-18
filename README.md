@@ -1,5 +1,11 @@
 # ⚽ Fair Play App
 
+<p align="center">
+  <img src="assets/pagina-fair-play.png" alt="Demonstração do App Fair Play" width="100%">
+</p>
+
+---
+
 O **Fair Play App** é uma aplicação web desenvolvida para gerenciar e organizar partidas de forma justa e equilibrada. A ferramenta foi criada para solucionar o problema comum de divisão de times, permitindo cadastrar jogadores, gerenciar listas e realizar sorteios de maneira automatizada, garantindo que o jogo seja divertido e imparcial para todos.
 
 Ideal para a organização de rachas, torneios amistosos e encontros esportivos.
