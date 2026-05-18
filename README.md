@@ -31,4 +31,20 @@ O desenvolvimento do Fair Play App permitiu consolidar conceitos avançados de l
 2. **Validação e Fluxo:** Implementação de travas de segurança para evitar jogadores duplicados ou sorteios com número insuficiente de participantes.
 3. **Persistência e Interface:** Sincronização entre as ações do usuário (cliques e digitação) e o que é exibido visualmente no DOM, mantendo a interface limpa e reativa.
 
+(Criado por Rodrigo Jatobá)
+
 ---
+
+## 🌐 Acesse o projeto
+**🔗 Deploy (GitHub Pages):**
+* []
+
+---
+
+## 🤝 Contato
+
+**Rodrigo Jatobá** 
+
+[![github](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RodrigoJatoba)
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-jatobá-9ab11b238/)
+[![outlook](https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:rodrigosouza_al@hotmail.com)
