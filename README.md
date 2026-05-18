@@ -37,7 +37,7 @@ O desenvolvimento do Fair Play App permitiu consolidar conceitos avançados de l
 
 ## 🌐 Acesse o projeto
 **🔗 Deploy (GitHub Pages):**
-* []
+* [https://rodrigojatoba.github.io/Fair-Play-App/]
 
 ---
 
